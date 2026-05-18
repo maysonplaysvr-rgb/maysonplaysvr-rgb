@@ -1,0 +1,25 @@
+{
+  "name": "chromapper-note-density-analyzer",
+  "version": "1.0.0",
+  "description": "A Chromapper plugin that analyzes note density and recommends difficulty balancing for Beat Saber maps",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "chromapper",
+    "beat-saber",
+    "plugin",
+    "difficulty-analysis",
+    "note-density"
+  ],
+  "author": "maysonplaysvr-rgb",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.2.0"
+  },
+  "dependencies": {}
+}

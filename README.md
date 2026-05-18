@@ -1,28 +1,104 @@
-# maysonplaysvr-rgb
+# Chromapper Note Density Analyzer Plugin
 
-A project repository.
+🎮 A powerful Chromapper plugin that analyzes note density and provides intelligent recommendations for difficulty balancing in Beat Saber maps.
 
-## Getting Started
+## Features
 
-To get started with this project, follow these steps:
+✨ **Comprehensive Analysis**
+- Breaks maps into 1-second sections
+- Calculates note density (notes per second)
+- Auto-assigns difficulty ratings (Easy → ExpertPlus)
 
-1. Clone the repository
-2. Install dependencies
-3. Start developing!
+🎯 **Intelligent Recommendations**
+- **Spike Detection** - Identifies jarring difficulty spikes
+- **Pacing Analysis** - Detects sections that might feel empty
+- **Transition Detection** - Finds abrupt shifts in intensity
 
-## Project Structure
+📊 **Beautiful Reports**
+- Formatted analysis with detailed metrics
+- Severity-based recommendations
+- Actionable suggestions for improvement
 
+## Installation
+
+```bash
+npm install
 ```
-.
-├── README.md
-├── .gitignore
-└── CONTRIBUTING.md
+
+## Usage
+
+```typescript
+import plugin from 'chromapper-note-density-analyzer';
+
+const mapData = {
+  notes: [...],
+  obstacles: [...],
+  duration: 120,
+  bpm: 140
+};
+
+const results = plugin.analyze(mapData);
+console.log(results);
 ```
+
+## Building
+
+```bash
+npm run build      # Compile TypeScript
+npm run dev        # Watch mode
+npm run clean      # Remove build files
+```
+
+## Output Format
+
+### Analysis Report
+
+```typescript
+{
+  sections: [
+    {
+      startTime: 0,
+      endTime: 1,
+      noteCount: 5,
+      density: 5,
+      difficulty: "Hard"
+    },
+    // ...
+  ],
+  averageDensity: 4.2,
+  maxDensity: 8.5,
+  minDensity: 1.2,
+  totalNotes: 504,
+  mapDuration: 120
+}
+```
+
+### Recommendations
+
+```typescript
+[
+  {
+    severity: "high",
+    section: {...},
+    message: "⚠️  Difficulty spike detected at 45.2s",
+    suggestion: "Consider spreading notes or reducing density in this section"
+  },
+  // ...
+]
+```
+
+## Difficulty Ratings
+
+- **Easy**: < 2 notes/sec
+- **Normal**: 2-4 notes/sec
+- **Hard**: 4-6 notes/sec
+- **Expert**: 6-8 notes/sec
+- **ExpertPlus**: > 8 notes/sec
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT License - Feel free to use and modify!
 
-## Contributing
+## Support
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
+For issues or suggestions, please open an issue on the GitHub repository.
